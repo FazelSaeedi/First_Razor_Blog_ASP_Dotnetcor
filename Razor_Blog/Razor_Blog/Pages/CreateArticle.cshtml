@@ -1,0 +1,45 @@
+﻿@page
+@model Razor_Blog.Pages.CreateArticleModel
+@{
+    ViewData["Title"] = "ایجاد مقاله جدید";
+}
+
+
+<div class="col-12 mb-3">
+    <div class="col-6 mr-auto ml-auto text-center">
+        <h1 class="border-bottom">ایجاد مقاله جدید</h1>
+    </div>
+</div>
+
+    <form class="mr-auto ml-auto" method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>ایجاد مقاله جدید</label>
+                <input class="form-control">
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label>عکس</label>
+                <input class="form-control">
+                @* <span asp-validation-for="@Model.Command.Picture" class="text-danger"></span>*@
+            </div>
+            <div class="form-group col-md-6">
+                <label>عکس ALT</label>
+                <input class="form-control">
+            </div>
+            <div class="form-group col-md-6">
+                <label>عکس Title</label>
+                <input class="form-control">
+            </div>
+            <div class="form-group col-md-12">
+                <label>توضیحات کوتاه </label>
+                <textarea class="form-control"></textarea>
+                <span class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label> بدنه اصلی</label>
+            <textarea rows="5" type="text" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">ارسال</button>
+    </form>

@@ -1,16 +1,62 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "صفحه اصلی";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <h1>@ViewData["message"]</h1>
-    
-    <form method="post">
-        <input type="text" name="name" value="x" class="form-control"/>
-        <button type="submit" class="btn btn-dark">Submit</button>
-    </form>
+<div class="col-12 mb-3">
+    <div class="row">
+        <div class="border-bottom col-3 ml-auto mr-auto text-center">
+            <h2>تازه ترین مقالات</h2>
+        </div>
+    </div>
 </div>
+
+
+<div class="col-4 mb-2">
+    <div class="card">
+        <img src="~/images/camp.jpg" class="card-img-top" alt="" title="First Article">
+        <div class="card-body">
+            <h5 class="card-title">Cart article</h5>
+            <p class="card-text">
+                Lorem
+            </p>
+            <a
+                class="btn btn-primary">ادامه مطلب</a>
+            <a   class="btn btn-danger">حذف</a>
+        </div>
+    </div>
+</div>
+
+
+<div class="col-4 mb-2">
+    <div class="card">
+        <img src="~/images/camp.jpg" class="card-img-top" alt="" title="Second Article">
+        <div class="card-body">
+            <h5 class="card-title">Second Cart article</h5>
+            <p class="card-text">
+                Second Lorem 
+            </p>
+            <a
+                class="btn btn-primary">ادامه مطلب</a>
+            <a   class="btn btn-danger">حذف</a>
+        </div>
+    </div>
+</div>
+
+<div class="col-4 mb-2">
+    <div class="card">
+        <img src="~/images/camp.jpg" class="card-img-top" alt="" title="Third Article">
+        <div class="card-body">
+            <h5 class="card-title">Second Cart article</h5>
+            <p class="card-text">
+                Third Lorem
+            </p>
+            <a class="btn btn-primary">ادامه مطلب</a>
+            <a class="btn btn-danger">حذف</a>
+        </div>
+    </div>
+</div>
+
+
+
