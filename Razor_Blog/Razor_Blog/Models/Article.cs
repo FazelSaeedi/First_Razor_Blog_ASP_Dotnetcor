@@ -5,7 +5,7 @@ namespace Razor_Blog.Models
 {
     public class Article
     {
-        public Article(string title, string picture, string pictureAlt, string pictureTitle, string shortdescription, string body, DateTime creationDate)
+        public Article(string title, string picture, string pictureAlt, string pictureTitle, string shortdescription, string body )
         {
             Title = title;
             Picture = picture;
