@@ -12,6 +12,14 @@ namespace Razor_Blog.Pages
     {
         private readonly BlogContext _context;
 
+        [TempData]
+        public string ErrorMessage { get; set; }
+
+        [TempData]
+        public string SuccessMessage { get; set; }
+
+        public CreateArticle Command { get; set; }
+
         public CreateArticleModel(BlogContext context)
         {
             _context = context;
@@ -21,14 +29,25 @@ namespace Razor_Blog.Pages
         {
         }
 
-        public void OnPost(CreateArticle model)
+        public IActionResult OnPost(CreateArticle Command)
         {
-            var article = new Article(model.title, model.picture, model.pictureAlt, model.pictureTitle,
-                model.shortDescription, model.body);
-            _context.Articles.Add(article);
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                var article = new Article(Command.title, Command.picture, Command.pictureAlt, Command.pictureTitle,
+                    Command.shortDescription, Command.body);
 
-            TempData["success"] = "مقاله با موفقیت ذخیره شد";
+                _context.Articles.Add(article);
+                _context.SaveChanges();
+
+                SuccessMessage = "مقاله با موفقیت ذخیره شد";
+                return RedirectToPage("./Index");
+            }
+            else
+            {
+                ErrorMessage = "مقاله با موفقیت ذخیره نشد";
+                return Page();
+            }
+
         }
     }
 }

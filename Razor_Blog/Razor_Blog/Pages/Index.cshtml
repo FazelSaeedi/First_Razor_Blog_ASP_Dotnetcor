@@ -12,7 +12,25 @@
     </div>
 </div>
 
+@foreach (var article in Model.Articles)
+{
+    <div class="col-4 mb-2">
+        <div class="card">
+            <img src="@article.Picture" class="card-img-top" alt="@article.PictureAlt" title="@article.PictureTitle">
+            <div class="card-body">
+                <h5 class="card-title">@article.Title</h5>
+                <p class="card-text">
+                    @article.Shortdescription
+                </p>
+                <a
+                    class="btn btn-primary">ادامه مطلب</a>
+                <a   class="btn btn-danger">حذف</a>
+            </div>
+        </div>
+    </div>
+}
 
+@*
 <div class="col-4 mb-2">
     <div class="card">
         <img src="~/images/camp.jpg" class="card-img-top" alt="" title="First Article">
@@ -60,3 +78,4 @@
 
 
 
+*@

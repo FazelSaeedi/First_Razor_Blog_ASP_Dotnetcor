@@ -6,13 +6,18 @@
 
 
 <div class="col-12 mb-3">
-    @if (TempData["success"] != null )
+    @if (Model.SuccessMessage != null )
     {
         <div class="alert alert-success">
             @TempData["success"];
         </div>
     }
-
+    @if (Model.ErrorMessage != null)
+    {
+        <div class="alert alert-danger">
+            @Model.ErrorMessage
+        </div>
+    }
     <div class="col-6 mr-auto ml-auto text-center">
         <h1 class="border-bottom">ایجاد مقاله جدید</h1>
     </div>
@@ -22,36 +27,37 @@
         <div class="form-row">
 
             <div class="form-group col-md-6">
-                <label>عنوان مقاله جدید</label>
-                <input class="form-control" name="title">
-                <span class="text-danger"></span>
+                <label asp-for="@Model.Command.title"></label>
+                <input class="form-control" name="title" asp-for="@Model.Command.title">
+                <span class="text-danger" asp-validation-for="@Model.Command.title"></span>
             </div>
 
             <div class="form-group col-md-6">
-                <label>عکس</label>
-                <input class="form-control" name="picture">
-                @* <span asp-validation-for="@Model.Command.Picture" class="text-danger"></span>*@
+                <label asp-for="@Model.Command.picture"></label>
+                <input class="form-control" name="picture" asp-for="@Model.Command.picture">
+                <span class="text-danger" asp-validation-for="@Model.Command.picture"></span>
             </div>
 
             <div class="form-group col-md-6">
-                <label>عکس ALT</label>
-                <input class="form-control" name="pictureAlt">
+                <label asp-for="@Model.Command.pictureAlt"></label>
+                <input class="form-control" name="pictureAlt" asp-for="@Model.Command.pictureAlt">
+                <span class="text-danger" asp-validation-for="@Model.Command.pictureAlt"></span>
             </div>
 
             <div class="form-group col-md-6">
-                <label>عکس Title</label>
-                <input class="form-control" name="pictureTitle">
+                <label asp-for="@Model.Command.pictureTitle"></label>
+                <input class="form-control" name="pictureTitle" asp-for="@Model.Command.pictureTitle">
             </div>
 
             <div class="form-group col-md-12">
-                <label>توضیحات کوتاه </label>
-                <textarea class="form-control" name="shortDescription"></textarea>
+                <label asp-for="@Model.Command.shortDescription"></label>
+                <textarea class="form-control" name="shortDescription" asp-for="@Model.Command.shortDescription"></textarea>
                 <span class="text-danger"></span>
             </div>
 
             <div class="form-group">
-                <label> بدنه اصلی</label>
-                <textarea rows="5" type="text" class="form-control" name="body"></textarea>
+                <label asp-for="@Model.Command.body"></label>
+                <textarea rows="5" type="text" class="form-control" name="body" asp-for="@Model.Command.body"></textarea>
             </div>
         </div>
 
