@@ -14,6 +14,7 @@ namespace Razor_Blog.Models
             Shortdescription = shortdescription;
             Body = body;
             CreationDate = DateTime.Now;
+            IsDeleted = false;
         }
 
         public int Id  { get; set; }
@@ -31,6 +32,8 @@ namespace Razor_Blog.Models
         public string Body   { get; set; }
 
         public DateTime CreationDate { get; set; }
+
+        public bool IsDeleted { get; set; }
          
 
     }

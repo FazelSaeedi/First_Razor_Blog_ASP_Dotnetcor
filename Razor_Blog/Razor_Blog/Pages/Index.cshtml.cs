@@ -22,7 +22,9 @@ namespace Razor_Blog.Pages
 
         public void OnGet()
         {
-            Articles = _Context.Articles.Select(x => new ArticleViwModel
+            Articles = _Context.Articles
+                .Where(x => x.IsDeleted == false)
+                .Select(x => new ArticleViwModel
             {
                 Id = x.Id ,
                 Title = x.Title ,
@@ -36,7 +38,16 @@ namespace Razor_Blog.Pages
             //ViewData["message"] = "hellow World!";
         }
 
-        public void OnPost(IFormCollection form)
+        public IActionResult OnGetDelete(int id)
+        {
+            var article = _Context.Articles.First(x => x.Id == id);
+            article.IsDeleted = true;
+            _Context.SaveChanges();
+
+            return RedirectToPage("./Index");
+        }
+
+        /*public void OnPost(IFormCollection form)
         {
 
         }
@@ -44,6 +55,6 @@ namespace Razor_Blog.Pages
         public IActionResult OnGetLoad()
         {
             return Page();
-        }
+        }*/
     }
 }

@@ -24,7 +24,7 @@
                 </p>
                 <a
                     class="btn btn-primary" asp-page="./ArticleDetails" asp-route-id="@article.Id">ادامه مطلب</a>
-                <a   class="btn btn-danger">حذف</a>
+                <a   class="btn btn-danger" asp-page-handler="Delete" asp-route-id="@article.Id">حذف</a>
             </div>
         </div>
     </div>
